@@ -1,25 +1,25 @@
 package com.example.listaEncadeada;
 
-public class NoLista {
-    private int info;
-    private NoLista proximo;
+public class NoLista<T> {
+    private T info;
+    private NoLista<T> proximo;
     
     public NoLista() {
     }
 
-    public int getInfo(){
+    public T getInfo(){
         return this.info;
     }
 
-    public void setInfo(int alteraInfo){
+    public void setInfo(T alteraInfo){
         this.info = alteraInfo;
     }
 
-    public NoLista getProximo(){
+    public NoLista<T> getProximo(){
         return this.proximo;
     }
 
-    public void setProximo(NoLista info){
+    public void setProximo(NoLista<T> info){
         this.proximo = info;
     }
 }

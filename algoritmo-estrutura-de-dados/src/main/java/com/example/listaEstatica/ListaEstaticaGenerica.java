@@ -1,8 +1,10 @@
-public class ListaEstatica2 {
+package com.example.listaEstatica;
+
+public class ListaEstaticaGenerica {
     Object[] info;
     int tamanho;
 
-    public ListaEstatica2(){
+    public ListaEstaticaGenerica(){
         info = new Object[10];
         tamanho=0;
     }

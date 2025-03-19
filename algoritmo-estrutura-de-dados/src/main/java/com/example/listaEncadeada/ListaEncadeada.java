@@ -17,9 +17,9 @@ public class ListaEncadeada<T> {
         return this.primeiro == null;
     }
     
-    public void inserir(NoLista<T> info){
+    public void inserir(T info){
         NoLista<T> novo = new NoLista<>();
-        novo.setInfo(info.getInfo());
+        novo.setInfo(info);
         novo.setProximo(primeiro);
         this.primeiro = novo;
     }
@@ -126,7 +126,7 @@ public class ListaEncadeada<T> {
 
         while(p != null){
             if(p != primeiro){
-                resultado += ","
+                resultado += ",";
             }
 
             resultado += p.getInfo();

@@ -1,3 +1,5 @@
+package com.example.listaEstatica;
+
 public class ListaEstatica {
     int[] info;
     int tamanho;

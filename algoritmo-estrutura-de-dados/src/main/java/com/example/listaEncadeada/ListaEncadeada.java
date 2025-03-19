@@ -14,10 +14,7 @@ public class ListaEncadeada<T> {
     }
 
     public boolean estaVazia(){
-        if (this.primeiro == null){
-            return true;
-        }
-        return false;
+        return this.primeiro == null;
     }
     
     public void inserir(NoLista<T> info){
@@ -30,7 +27,7 @@ public class ListaEncadeada<T> {
     public NoLista<T> buscar(T info){
         NoLista<T> p = primeiro;
         while (p != null) {
-            if(p.getInfo() == info){
+            if(p.getInfo().equals(info)){
                 return p;
             }
 
@@ -49,7 +46,7 @@ public class ListaEncadeada<T> {
 
         // }
 
-        while(p != null && p.getInfo() != info){
+        while(p != null && !(p.getInfo().equals(info))){
             anterior = p;
             p = p.getProximo();
         }
@@ -69,23 +66,19 @@ public class ListaEncadeada<T> {
 
         while (p != null) {
             comprimento++;
-
-            if(p.getProximo() == null){
-                return comprimento;
-            }    
-            
             p = p.getProximo();
         }
 
         return comprimento;
     }
 
-    public NoLista<T> obterNo(int index){
+    public NoLista<T> obterNo2(int index){
+        //não é bom fazer assim 
         int comprimento = obterComprimento();
         NoLista<T> p = primeiro;
         NoLista<T> noEncontrado = null;
 
-        if(index < 0 || index > comprimento){
+        if(index < 0 || index >= comprimento){
             throw new IndexOutOfBoundsException("Index não é uma posição válida na lista.");
         }
 
@@ -99,6 +92,48 @@ public class ListaEncadeada<T> {
         }
       
         return noEncontrado;
+    }
+
+    public NoLista<T> obterNo(int index){
+        if(index < 0){
+            throw new IndexOutOfBoundsException("Index não é uma posição válida na lista.");
+        }
+
+        NoLista<T> p = primeiro;
+    
+        while(p!= null && index > 0){
+            index--;
+            p = p.getProximo();
+        }
+      
+        if(p == null){
+            throw new IndexOutOfBoundsException("Index não é uma posição válida na lista.");
+        }
+        return p;
+    }
+
+    public void exibir(){
+        NoLista<T> p = primeiro;
+        while(p != null){
+            System.out.println(p.getInfo());
+            p = p.getProximo();
+        }
+    }   
+
+    public String toString(){
+        String resultado = "";
+        NoLista<T> p = primeiro;
+
+        while(p != null){
+            if(p != primeiro){
+                resultado += ","
+            }
+
+            resultado += p.getInfo();
+            p = p.getPrimeiro();
+        }
+
+        return resultado;
     }
 
 }

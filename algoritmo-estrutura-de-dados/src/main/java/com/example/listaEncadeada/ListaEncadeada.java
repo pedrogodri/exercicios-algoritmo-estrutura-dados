@@ -130,7 +130,7 @@ public class ListaEncadeada<T> {
             }
 
             resultado += p.getInfo();
-            p = p.getPrimeiro();
+            p = p.getProximo();
         }
 
         return resultado;

@@ -45,6 +45,6 @@ public class FilaEncadeada<T> implements Fila<T> {
     }
     
     public String toString(){
-        return lista.toString();
+        return lista.toString(); 
     }
 }

@@ -1,6 +1,6 @@
 package com.example.Fila;
 
-public class FilaVetor implements Fila {
+public class FilaVetor<T> implements Fila<T> {
     private Object[] info;
     private int limite;
     private int tamanho;
@@ -14,7 +14,7 @@ public class FilaVetor implements Fila {
     }
 
     @Override
-    public void inserir(Object info) {
+    public void inserir(T info) {
         if(this.tamanho == this.limite) {
             throw new FilaCheiaException();
         }
@@ -22,30 +22,32 @@ public class FilaVetor implements Fila {
         int posicaoInserir;
         posicaoInserir = (this.inicio + this.tamanho) % this.limite;
         this.info[posicaoInserir] = info;
-        this.tamanho += 1;
+        this.tamanho++;
     }
 
     @Override
     public boolean estaVazia() {
-        if(info == null || this.tamanho == 0){
+        if(info == null || this.tamanho == 0)
             return true;
-        }
 
         return false;
     }
 
     @Override
-    public Object peek() {
+    public T peek() {
         if(estaVazia())
             throw new FilaVaziaException();
-        return this.info[this.inicio];
+        return (T) this.info[this.inicio];
     }
 
     @Override
-    public Object retirar() {
-        int valor = (int) peek();
+    public T retirar() {
+        T valor = peek();
+
+        info[inicio] = null;
         this.inicio = (this.inicio + 1) % this.limite;
-        this.tamanho = this.tamanho - 1;
+        this.tamanho--;
+
         return valor;
     }
 
@@ -58,13 +60,33 @@ public class FilaVetor implements Fila {
     public String toString(){
         String resultado = "";
 
-        for (int i = tamanho - 1; i >= 0; i--) {
-            resultado += info[i];
-
+        int posicao = inicio;
+        for (int i = 0; i < tamanho; i++) {
             if(i > 0)
                 resultado += ", ";
+
+            resultado += info[posicao];
+            posicao = (posicao + 1) % limite;
         }
 
         return resultado;
+    }
+    
+    public FilaVetor<T> criarFilaConcatenada(FilaVetor<T> fila2){
+        FilaVetor<T> f3 = new FilaVetor<T>(limite + fila2.limite);
+
+        int posicao = inicio;
+        for (int i = 0; i < tamanho; i++) {
+            f3.inserir((T)info[posicao]);
+            posicao = (posicao +1) % limite;
+        }
+
+        posicao = fila2.inicio;
+        for (int i = 0; i < fila2.tamanho; i++) {
+            f3.inserir((T)fila2.info[posicao]);
+            posicao = (posicao +1) % fila2.limite;
+        }
+
+        return f3;
     }
 }

@@ -1,42 +1,47 @@
-package com.example.ArvoreBinaria;
+package com.aula.models;
 
-public class NoArvoreBinaria<T> {
-    private Object info;
-    private Object esquerda;
-    private Object direita;
+public  class NoArvoreBinaria<T> {
+    private T info;
+    private NoArvoreBinaria<T> direita;
+    private NoArvoreBinaria<T> esquerda;
 
-    public NoArvoreBinaria(Object info) {
-        this.info = info;
+    public NoArvoreBinaria(T info) {
+        setInfo(info);
+    }
+    
+    public NoArvoreBinaria(
+        T info, 
+        NoArvoreBinaria<T> esq,
+        NoArvoreBinaria<T> dir) 
+    {
+        setInfo(info);
+        setEsquerda(esq);
+        setDireita(dir);
     }
 
-    public NoArvoreBinaria(Object info, NoArvoreBinaria<T> esq, NoArvoreBinaria<T> dir) {
-        this.info = info;
-        this.esquerda = esq;
-        this.direita = dir;
-    }
-
-    public Object getInfo() {
+    public T getInfo() {
         return info;
     }
 
-    public void setInfo(Object info) {
+    public void setInfo(T info) {
         this.info = info;
     }
 
-    public Object getEsquerda() {
-        return esquerda;
-    }
-
-    public void setEsquerda(Object esquerda) {
-        this.esquerda = esquerda;
-    }
-
-    public Object getDireita() {
+    public NoArvoreBinaria<T> getDireita() {
         return direita;
     }
 
-    public void setDireita(Object direita) {
+    public void setDireita(NoArvoreBinaria<T> direita) {
         this.direita = direita;
     }
+
+    public NoArvoreBinaria<T> getEsquerda() {
+        return esquerda;
+    }
+
+    public void setEsquerda(NoArvoreBinaria<T> esquerda) {
+        this.esquerda = esquerda;
+    }
+    
     
 }

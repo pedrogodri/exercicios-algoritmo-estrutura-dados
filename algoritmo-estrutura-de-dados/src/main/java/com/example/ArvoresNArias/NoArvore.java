@@ -1,9 +1,9 @@
 package main.java.com.example.ArvoresNArias;
 
 public class NoArvore<T> {
+    private T info;
     private NoArvore<T> primeiro;
     private NoArvore<T> proximo;
-    private T info;
 
     public NoArvore(T info) {
         this.info = info;
@@ -11,9 +11,12 @@ public class NoArvore<T> {
         this.proximo = null;
     }
 
-    public void inserirFilho(NoArvore<T> subArvore){
-        subArvore.proximo =  primeiro;
-        primeiro = subArvore;
+    public T getInfo() {
+        return info;
+    }
+
+    public void setInfo(T info) {
+        this.info = info;
     }
 
     public NoArvore<T> getPrimeiro() {
@@ -32,13 +35,10 @@ public class NoArvore<T> {
         this.proximo = proximo;
     }
 
-    public T getInfo() {
-        return info;
+    public void inserirFilho(NoArvore<T> filho) {
+        if (filho != null) {
+            filho.setProximo(this.primeiro);
+            this.primeiro = filho;
+        }
     }
-
-    public void setInfo(T info) {
-        this.info = info;
-    }
-
-
 }

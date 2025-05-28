@@ -1,4 +1,4 @@
-package com.aula.models;
+package com.example.arvoreBinaria;
 
 public class ArvoreBinaria<T> {
     private NoArvoreBinaria<T> raiz;

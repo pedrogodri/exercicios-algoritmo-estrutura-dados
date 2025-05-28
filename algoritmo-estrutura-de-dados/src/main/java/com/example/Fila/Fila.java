@@ -1,4 +1,4 @@
-package com.example.Fila;
+package com.example.fila;
 
 public interface Fila<T> {
     void inserir(T info);

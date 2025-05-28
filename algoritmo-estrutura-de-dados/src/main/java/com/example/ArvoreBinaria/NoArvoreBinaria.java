@@ -1,4 +1,4 @@
-package com.aula.models;
+package com.example.arvoreBinaria;
 
 public  class NoArvoreBinaria<T> {
     private T info;

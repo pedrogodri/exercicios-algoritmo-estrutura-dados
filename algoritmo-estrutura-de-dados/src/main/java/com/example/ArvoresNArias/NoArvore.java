@@ -1,4 +1,4 @@
-package main.java.com.example.ArvoresNArias;
+package com.example.arvoresNArias;
 
 public class NoArvore<T> {
     private T info;

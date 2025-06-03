@@ -20,11 +20,11 @@ public class NoMapa<T> {
         this.valor = valor;
     }
 
-    public boolean equals(Object o) {
-        if(this == o) return true;
-        if(o == null) return false;
-        if(getClass() != o.getClass()) return false;
-        NoMapa outro = (NoMapa) o;
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null) return false;
+        if(getClass() != obj.getClass()) return false;
+        NoMapa outro = (NoMapa) obj;
         if(chave != outro.chave) return false;
         return true;
     }

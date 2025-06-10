@@ -1,4 +1,4 @@
-package com.example.arvoresNArias;
+package com.example.arvoresNarias;
 
 public class Main {
     public static void main(String[] args) {

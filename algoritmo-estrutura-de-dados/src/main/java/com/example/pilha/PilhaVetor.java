@@ -1,4 +1,4 @@
-package com.example.pilhaImplementacao;
+package com.example.pilha;
 
 public class PilhaVetor<T> implements IPilha<T> {
     private Object[] info;

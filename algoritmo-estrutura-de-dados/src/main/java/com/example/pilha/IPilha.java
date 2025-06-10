@@ -1,4 +1,4 @@
-package com.example.pilhaImplementacao;
+package com.example.pilha;
 
 public interface IPilha<T> {
 

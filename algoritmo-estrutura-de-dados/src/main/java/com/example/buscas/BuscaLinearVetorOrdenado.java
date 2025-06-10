@@ -17,6 +17,6 @@ public class BuscaLinearVetorOrdenado<T extends Comparable<T>> extends BuscaAbst
             }
         }
 
-        return -1; // Chave não encontrada
+        return -1; 
     }
 }

@@ -1,6 +1,6 @@
 package com.example.mapaDispersao;
 
-import com.example.fila.ListaEncadeada;
+import com.example.listaEncadeada.ListaEncadeada;
 import com.example.listaEncadeada.NoLista;
 
 public class MapaDispersao<T> {

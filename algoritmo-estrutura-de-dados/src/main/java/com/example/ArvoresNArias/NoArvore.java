@@ -1,4 +1,4 @@
-package com.example.arvoresNarias;
+package com.example.ArvoresNarias;
 
 public class NoArvore<T> {
     private T info;

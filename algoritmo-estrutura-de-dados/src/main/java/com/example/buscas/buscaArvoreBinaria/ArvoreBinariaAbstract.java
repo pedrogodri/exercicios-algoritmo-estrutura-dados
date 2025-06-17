@@ -23,19 +23,15 @@ public abstract class ArvoreBinariaAbstract<T> {
 
     public abstract NoArvoreBinaria<T> buscar(T info);
 
-    public boolean pertence(T info) {
-        return buscar(info) != null;
-    }
-
-    public String toString() {
-        return imprimirPreOrdem(this.raiz);
-    }
-
     private String imprimirPreOrdem(NoArvoreBinaria<T> no) {
         if (no == null) {
             return "";
         }
         return no.getInfo() + " " + imprimirPreOrdem(no.getEsquerda()) + imprimirPreOrdem(no.getDireita());
+    }
+    
+    public String toString() {
+        return imprimirPreOrdem(this.raiz);
     }
 
     public int contarNos() {
@@ -47,5 +43,9 @@ public abstract class ArvoreBinariaAbstract<T> {
             return 0;
         }
         return 1 + contarNos(no.getEsquerda()) + contarNos(no.getDireita());
+    }
+
+    public boolean pertence(T info) {
+        return buscar(info) != null;
     }
 }

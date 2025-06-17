@@ -3,12 +3,10 @@ package com.example.buscas.buscaArvoreBinaria;
 import com.example.arvoreBinaria.NoArvoreBinaria;
 
 public class ArvoreBinaria<T> extends ArvoreBinariaAbstract<T> {
-
     @Override
     public NoArvoreBinaria<T> buscar(T info) {
         return buscar(this.raiz, info);
     }
-
     private NoArvoreBinaria<T> buscar(NoArvoreBinaria<T> no, T info) {
         if (no == null) {
             return null;

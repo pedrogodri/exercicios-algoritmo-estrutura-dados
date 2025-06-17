@@ -6,7 +6,7 @@ public class BuscaLinearVetorOrdenado<T extends Comparable<T>> extends BuscaAbst
         T[] info = (T[]) getInfo();
         int tamanho = info.length;
 
-        for (int i = 0; i < info.length; i++) {
+        for (int i = 0; i < tamanho; i++) {
             if(info[i] == valor){
                 return i;
             }

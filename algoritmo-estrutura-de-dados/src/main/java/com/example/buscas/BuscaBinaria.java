@@ -2,8 +2,6 @@ package com.example.buscas;
 
 public class BuscaBinaria<T extends Comparable<T>> extends BuscaAbstract {
     public int buscar(T valor){
-        
-
         int inicio = 0;
         int fim = getInfo().length - 1;
         int meio;
